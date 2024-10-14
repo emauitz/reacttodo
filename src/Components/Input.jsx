@@ -8,19 +8,18 @@ function CustomInput({ placeholder, type, value, name, clase, onChange }) {
             value={value}
             name={name}
             className={clase}
-            onChange={onChange} // Asegúrate de manejar onChange
+            onChange={onChange}
         />
     );
 }
 
 CustomInput.propTypes = {
     placeholder: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired, // Debe ser string, no func
-    value: PropTypes.string.isRequired, // Debe ser string, no func
-    name: PropTypes.string.isRequired, // Debe ser string, no func
+    type: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     clase: PropTypes.string,
-    onChange: PropTypes.func.isRequired, // Asegúrate de agregar la validación para onChange
+    onChange: PropTypes.func.isRequired,
 };
 
 export default CustomInput;
-

@@ -1,17 +1,17 @@
-import { useState } from 'react';
-import CustomButton from '../Components/Button.jsx';
-import SettingsModal from '../ModalSettings/SettingsModal.jsx';
+import React, { useState } from 'react';
+import CustomButton from '../Components/Button';
+import SettingsModal from '../ModalSettings/SettingsModal'; // Asegúrate de ajustar la ruta si es necesario
 
 function TodoNavBar() {
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
     const handleLogout = () => {
         localStorage.removeItem('login_success');
-        window.location.href = '../login.html';
+        window.location.href = '/Login';
     };
 
     const handleSettings = () => {
-        setIsSettingsOpen(true);
+        setIsSettingsOpen(true); // Abre el modal
     };
 
     return (
@@ -27,7 +27,7 @@ function TodoNavBar() {
                     <CustomButton label="Settings" funcion={handleSettings} clase="NavbarButton" />
                 </li>
             </ul>
-            <SettingsModal isOpen={isSettingsOpen} onClose={() => setIsSettingsOpen(false)} />
+            <SettingsModal isOpen={isSettingsOpen} onClose={() => setIsSettingsOpen(false)} /> {/* Cierra el modal */}
         </nav>
     );
 }

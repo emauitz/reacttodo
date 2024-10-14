@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { DateTime } from 'luxon';
 
 function PerfilTodo({ nombre }) {
+
     const [fecha, setFecha] = useState('');
     const [saludo, setSaludo] = useState('');
 

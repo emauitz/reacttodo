@@ -11,7 +11,7 @@ function CustomButton({ label, funcion, clase }) {
 CustomButton.propTypes = {
     label: PropTypes.string.isRequired,
     funcion: PropTypes.func.isRequired,
-    clase: PropTypes.string
+    clase: PropTypes.string,
 };
 
 export default CustomButton;

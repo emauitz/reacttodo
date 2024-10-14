@@ -47,18 +47,23 @@ function LoginForm() {
                 placeholder="Email"
                 type="text"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)} // Asegúrate de manejar onChange
+                name="email"
+                onChange={(e) => setEmail(e.target.value)}
             />
             <CustomInput
                 placeholder="Password"
                 type="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)} // Asegúrate de manejar onChange
+                name="password"
+                onChange={(e) => setPassword(e.target.value)}
             />
-            <CustomButton type="submit" label="Iniciar Sesión" />
+            <CustomButton
+                type="submit"
+                label="Iniciar Sesión"
+                funcion={handleSubmit} // Asegúrate de pasar la prop funcion
+            />
         </form>
     );
 }
 
 export default LoginForm;
-

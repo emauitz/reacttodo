@@ -66,27 +66,31 @@ function SignupForm() {
                 placeholder="Nombre"
                 type="text"
                 value={username}
-                onChange={(e) => setUsername(e.target.value)} // Asegúrate de manejar onChange
+                name="username" 
+                onChange={(e) => setUsername(e.target.value)}
             />
             <CustomInput
                 placeholder="Email"
                 type="text"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)} // Asegúrate de manejar onChange
+                name="email" 
+                onChange={(e) => setEmail(e.target.value)}
             />
             <CustomInput
                 placeholder="Password"
                 type="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)} // Asegúrate de manejar onChange
+                name="password" 
+                onChange={(e) => setPassword(e.target.value)}
             />
             <CustomInput
                 placeholder="Confirma Password"
                 type="password"
                 value={repPassword}
-                onChange={(e) => setRepPassword(e.target.value)} // Asegúrate de manejar onChange
+                name="repPassword" 
+                onChange={(e) => setRepPassword(e.target.value)}
             />
-            <CustomButton type="submit" label="Registrarse" />
+            <CustomButton funcion={handleSubmit} type="submit" label="Registrarse" />
         </form>
     );
 }
