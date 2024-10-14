@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import CustomButton from '../Components/Button';
-import SettingsModal from '../ModalSettings/SettingsModal'; // Asegúrate de ajustar la ruta si es necesario
+import SettingsModal from '../ModalSettings/SettingsModal';
 
 function TodoNavBar() {
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
     const handleLogout = () => {
         localStorage.removeItem('login_success');
-        window.location.href = '/Login';
+        window.location.href = '/login';
     };
 
     const handleSettings = () => {

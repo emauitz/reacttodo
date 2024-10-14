@@ -2,10 +2,11 @@ import { useState } from 'react';
 import Swal from 'sweetalert2';
 import CustomInput from '../Components/Input';
 import CustomButton from '../Components/Button';
-
+import { useNavigate } from 'react-router-dom';
 function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -26,7 +27,7 @@ function LoginForm() {
                     throw new Error('Usuario no encontrado.');
                 }
                 localStorage.setItem('login_success', JSON.stringify({ email: usuario.email, username: usuario.username }));
-                window.location.href = 'index.html'; // Redirigir a la página principal
+                navigate('/');
             } else {
                 throw new Error('Faltan datos de inicio de sesión.');
             }
@@ -60,7 +61,7 @@ function LoginForm() {
             <CustomButton
                 type="submit"
                 label="Iniciar Sesión"
-                funcion={handleSubmit} // Asegúrate de pasar la prop funcion
+                funcion={handleSubmit} 
             />
         </form>
     );
