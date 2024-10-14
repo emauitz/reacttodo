@@ -1,8 +1,17 @@
 import { useState, useEffect } from 'react';
 import { DateTime } from 'luxon';
 
-function PerfilTodo({ nombre }) {
+function obtenerSaludo(hora) {
+    if (hora >= 6 && hora < 12) {
+        return 'buenos días';
+    } else if (hora >= 12 && hora < 18) {
+        return 'buenas tardes';
+    } else {
+        return 'buenas noches';
+    }
+}
 
+function PerfilTodo() {
     const [fecha, setFecha] = useState('');
     const [saludo, setSaludo] = useState('');
 
@@ -10,22 +19,12 @@ function PerfilTodo({ nombre }) {
         const ahora = DateTime.now();
         setFecha(ahora.toLocaleString(DateTime.DATE_SHORT));
 
-        const actualizarSaludo = (nombre) => {
-            const hora = ahora.hour;
-            let saludo;
-
-            if (hora >= 6 && hora < 12) {
-                saludo = 'buenos días';
-            } else if (hora >= 12 && hora < 18) {
-                saludo = 'buenas tardes';
-            } else {
-                saludo = 'buenas noches';
-            }
-            setSaludo(`Hola ${nombre}, ${saludo}`);
-        };
-
-        actualizarSaludo(nombre);
-    }, [nombre]);
+        const usuario = JSON.parse(localStorage.getItem('login_success'));
+        if (usuario && usuario.username) {
+            const saludo = obtenerSaludo(ahora.hour);
+            setSaludo(`Hola ${usuario.username}, ${saludo}`);
+        }
+    }, []);
 
     return (
         <div className="perfil">
